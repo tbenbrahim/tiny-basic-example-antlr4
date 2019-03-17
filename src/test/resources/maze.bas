@@ -1,0 +1,4 @@
+10 I=RND(2)
+12 IF I=0 PRINT "/";
+14 IF I=1 PRINT "\";
+20 GOTO 10
