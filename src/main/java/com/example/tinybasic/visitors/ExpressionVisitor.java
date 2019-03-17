@@ -44,7 +44,7 @@ public class ExpressionVisitor extends TinyBasicBaseVisitor<Expression> {
 
     @Override
     public Expression visitFunctionCall(TinyBasicParser.FunctionCallContext ctx) {
-        return new FunctionExpression(ctx.name.getText(),
+        return new FunctionCallExpression(ctx.name.getText(),
                 ctx.expression().stream()
                         .map(expressionContext -> expressionContext.accept(new ExpressionVisitor()))
                         .collect(Collectors.toList()));
@@ -58,16 +58,16 @@ public class ExpressionVisitor extends TinyBasicBaseVisitor<Expression> {
 
     @Override
     public Expression visitVariable(TinyBasicParser.VariableContext ctx) {
-        return new VariableExpression(ctx.var().VAR().getSymbol().getText());
+        return new VariableValueExpression(ctx.var().VAR().getSymbol().getText());
     }
 
     @Override
     public Expression visitString(TinyBasicParser.StringContext ctx) {
-        return new StringExpression(ctx.STRING().getSymbol().getText());
+        return new StringValueExpression(ctx.STRING().getSymbol().getText());
     }
 
     @Override
     public Expression visitNum(TinyBasicParser.NumContext ctx) {
-        return new IntegerExpression(Integer.parseInt(ctx.number().getText()));
+        return new IntegerValueExpression(Integer.parseInt(ctx.number().getText()));
     }
 }

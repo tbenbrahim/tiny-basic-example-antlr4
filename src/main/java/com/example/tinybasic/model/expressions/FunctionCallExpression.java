@@ -6,12 +6,12 @@ import com.example.tinybasic.model.ValueType;
 
 import java.util.List;
 
-public class FunctionExpression implements Expression {
+public class FunctionCallExpression implements Expression {
 
     private final List<Expression> argumentExpressions;
     private final String name;
 
-    public FunctionExpression(String name, List<Expression> argumentExpressions){
+    public FunctionCallExpression(String name, List<Expression> argumentExpressions){
         this.name=name;
         this.argumentExpressions=argumentExpressions;
     }

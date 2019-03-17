@@ -5,11 +5,11 @@ import com.example.tinybasic.model.Expression;
 import com.example.tinybasic.model.ValueType;
 import com.example.tinybasic.model.types.StringValue;
 
-public class StringExpression implements Expression {
+public class StringValueExpression implements Expression {
 
     private final StringValue value;
 
-    public StringExpression(String value){
+    public StringValueExpression(String value){
         this.value=new StringValue(value.substring(1, value.length()-1));
     }
     @Override
